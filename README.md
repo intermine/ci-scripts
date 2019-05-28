@@ -1,5 +1,7 @@
 # testmine-ci
 
+[![Build Status](https://travis-ci.org/intermine/testmine-ci.svg?branch=master)](https://travis-ci.org/intermine/testmine-ci)
+
 Common intermine testmine install scripts used in multiple repos.
 
 To run as part of CI from another repo:

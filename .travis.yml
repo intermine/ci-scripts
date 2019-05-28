@@ -1,4 +1,3 @@
 language: generic
-sudo: true
-script:
+before_install:
     - ./init-testmine.sh

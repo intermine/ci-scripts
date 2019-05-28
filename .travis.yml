@@ -1,4 +1,11 @@
 language: generic
+env:
+  global:
+  - TESTMODEL_URL=http://localhost:8080/intermine-demo
+  - TESTMODEL_PATH=intermine-demo
+sudo: true
+jdk:
+- openjdk8
 before_install:
   - bash init-testmine.sh
 script:

@@ -1,3 +1,5 @@
 language: generic
+before_install:
+  - bash init-testmine.sh
 script:
-    - bash init-testmine.sh
+  - echo "successfully built"

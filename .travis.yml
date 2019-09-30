@@ -1,4 +1,4 @@
-language: generic
+language: java
 env:
   global:
   - TESTMODEL_URL=http://localhost:8080/intermine-demo

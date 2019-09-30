@@ -5,7 +5,7 @@ env:
   - TESTMODEL_PATH=intermine-demo
 sudo: true
 jdk:
-- openjdk8
+  - openjdk8
 before_install:
   - bash init-biotestmine.sh
   - bash init-testmine.sh

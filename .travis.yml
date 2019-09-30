@@ -3,12 +3,11 @@ env:
   global:
   - TESTMODEL_URL=http://localhost:8080/intermine-demo
   - TESTMODEL_PATH=intermine-demo
-  - JAVA_HOME=/usr/local/lib/jvm/openjdk8
 sudo: true
 jdk:
   - openjdk8
-before_install:
+script:
+  - jdk_switcher use openjdk8
   - bash init-biotestmine.sh
   - bash init-testmine.sh
-script:
   - echo "successfully built"

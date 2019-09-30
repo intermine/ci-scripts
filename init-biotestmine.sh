@@ -33,10 +33,8 @@ sed -i -e $SED_SCRIPT $TESTMODEL_PROPS
 echo '#---> Setting up solr search'
 $SCRIPT_DIR/init-solr.sh
 
-# Install Perl module dependencies for setup.sh
-$GET http://cpanmin.us | perl - --self-upgrade
-cpanm XML::Parser::PerlSAX
-cpanm Text::Glob
+echo '#---> Setting up perl dependencies'
+$SCRIPT_DIR/init-perl.sh
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'

@@ -34,8 +34,9 @@ echo '#---> Setting up solr search'
 $SCRIPT_DIR/init-solr.sh
 
 # Install Perl module dependencies for setup.sh
-cpan -i XML::Parser::PerlSAX
-cpan -i Text::Glob
+$GET http://cpanmin.us | perl - --self-upgrade
+cpanm XML::Parser::PerlSAX
+cpanm Text::Glob
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'

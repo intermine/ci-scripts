@@ -12,19 +12,19 @@ fi
 cd $HOME
 
 # Pull in the server code.
-git clone --single-branch --branch 'dev' --depth 1 https://github.com/intermine/intermine.git server
+git clone --single-branch --branch 'dev' --depth 1 https://github.com/intermine/biotestmine.git server
 
 export PSQL_USER=postgres
 
 # Set up properties
 PROPDIR=$HOME/.intermine
-TESTMODEL_PROPS=$PROPDIR/testmodel.properties
+TESTMODEL_PROPS=$PROPDIR/biotestmine.properties
 SED_SCRIPT='s/PSQL_USER/postgres/'
 
 mkdir -p $PROPDIR
 
 echo "#--- creating $TESTMODEL_PROPS"
-cp server/config/testmodel.properties $TESTMODEL_PROPS
+cp server/data/biotestmine.properties $TESTMODEL_PROPS
 sed -i -e $SED_SCRIPT $TESTMODEL_PROPS
 
 # Initialise solr
@@ -33,7 +33,7 @@ echo '#---> Setting up solr search'
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'
-(cd server/testmine && ./setup.sh)
+(cd server && ./setup.sh)
 sleep 60 # let webapp startup
 
 # Warm up the keyword search by requesting results, but ignoring the results

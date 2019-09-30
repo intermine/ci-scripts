@@ -7,9 +7,6 @@ sudo: true
 jdk:
   - openjdk8
 script:
-  - ls /usr/local/lib/jvm/
-  - which java
-  - ls /usr/local/lib/
   - bash init-biotestmine.sh
   - bash init-testmine.sh
   - echo "successfully built"

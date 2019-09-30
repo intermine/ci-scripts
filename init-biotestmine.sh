@@ -36,8 +36,7 @@ $SCRIPT_DIR/init-solr.sh
 echo '#---> Setting up perl dependencies'
 $SCRIPT_DIR/init-perl.sh
 
-sed -i -e '29i<!--' biotestmine/data/project.xml
-sed -i -e '41i-->' biotestmine/data/project.xml
+sed -i -e '29,39d' biotestmine/data/project.xml
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'

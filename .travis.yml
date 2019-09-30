@@ -6,6 +6,8 @@ env:
 sudo: true
 jdk:
   - openjdk8
+services:
+  - postgresql
 script:
   - bash init-biotestmine.sh
   - bash init-testmine.sh

@@ -11,5 +11,4 @@ services:
 script:
   - bash init-biotestmine.sh
   - bash init-testmine.sh
-  - df -h
   - echo "successfully built"

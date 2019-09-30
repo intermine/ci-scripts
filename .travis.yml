@@ -3,6 +3,7 @@ env:
   global:
   - TESTMODEL_URL=http://localhost:8080/intermine-demo
   - TESTMODEL_PATH=intermine-demo
+  - JAVA_HOME=/usr/local/lib/jvm/openjdk8
 sudo: true
 jdk:
   - openjdk8

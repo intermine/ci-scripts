@@ -2,6 +2,8 @@
 
 set -e
 
+export MINE=biotestmine
+
 SCRIPT_DIR=`pwd`/scripts
 CONFIG_DIR=`pwd`/config/biotestmine
 

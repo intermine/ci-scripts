@@ -52,4 +52,4 @@ sleep 600
 # Warm up the keyword search by requesting results, but ignoring the results
 $GET "http://localhost:8080/biotestmine/service/search" > /dev/null
 # Start any list upgrades
-$GET "http://localhost:8080/biotestmine/service/lists?token=test-user-token" > /dev/null
+$GET "http://localhost:8080/biotestmine/service/lists" > /dev/null

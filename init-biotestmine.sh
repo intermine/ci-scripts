@@ -44,8 +44,10 @@ cp $CONFIG_DIR/* biotestmine/
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'
-(cd biotestmine && ./setup.sh)
-sleep 60 # let webapp startup
+(cd biotestmine && ./setup.sh) &
+# Gradle doesn't actually finish executing, so we daemonize it, wait and pray
+# that it finishes in time.
+sleep 600
 
 # Warm up the keyword search by requesting results, but ignoring the results
 $GET "$TESTMODEL_URL/service/search" > /dev/null

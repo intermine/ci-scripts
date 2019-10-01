@@ -1,8 +1,4 @@
 language: java
-env:
-  global:
-  - TESTMODEL_URL=http://localhost:8080/intermine-demo
-  - TESTMODEL_PATH=intermine-demo
 sudo: true
 jdk:
   - openjdk8

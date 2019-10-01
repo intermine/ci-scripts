@@ -33,7 +33,6 @@
 
   <post-processing>
     <post-process name="create-references"/>
-    <post-process name="transfer-sequences" dump="true"/>
 
     <!-- this runs the postprocessing steps in all sources -->
     <post-process name="do-sources"/>

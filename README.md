@@ -11,7 +11,7 @@ Shell scripts for setting up InterMine instances as part of CI.
 To run as part of CI from another repo:
 
 ```
-git clone git@github.com:intermine/ci-scripts.git
+git clone https://github.com/intermine/ci-scripts
 (cd ci-scripts && bash init-biotestmine.sh)
 ```
 
@@ -26,7 +26,7 @@ services:
   - postgresql
 
 before_install:
-    - git clone git@github.com:intermine/ci-scripts.git
+    - git clone https://github.com/intermine/ci-scripts
     - (cd ci-scripts && bash init-biotestmine.sh)
 ```
 

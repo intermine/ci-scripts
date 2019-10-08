@@ -16,6 +16,10 @@ else
     GET='wget -O -'
 fi
 
+if test -z $NO_CONFIG_OVERRIDE; then
+  NO_CONFIG_OVERRIDE=false
+fi
+
 cd $HOME
 
 # Pull in the server code.
@@ -42,7 +46,9 @@ echo '#---> Setting up perl dependencies'
 $SCRIPT_DIR/init-perl.sh
 
 # Copy CI-specific config
-cp $CONFIG_DIR/* biotestmine/
+if ! $NO_CONFIG_OVERRIDE; then
+  cp $CONFIG_DIR/* biotestmine/
+fi
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'

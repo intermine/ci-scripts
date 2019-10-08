@@ -3,6 +3,8 @@
 set -e
 
 export MINE=biotestmine
+# Use the biotestmine lite dataset instead of the full.
+export LITE=true
 
 SCRIPT_DIR=`pwd`/scripts
 CONFIG_DIR=`pwd`/config/biotestmine

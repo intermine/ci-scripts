@@ -31,3 +31,7 @@ before_install:
 ```
 
 If you wish to use the lighter *testmodel*, replace `init-biotestmine.sh` with `init-testmine.sh`.
+
+## Full processing of biotestmine dataset
+
+The `init-biotestmine.sh` script uses a stripped down `project.xml` for processing the dataset. If you miss any features, you can specify `NO_CONFIG_OVERRIDE=true` when invoking the script to use the complete (albeit heavier) `project.xml` in the [biotestmine repository](https://github.com/intermine/biotestmine/blob/master/data/project.xml).

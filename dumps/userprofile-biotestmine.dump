@@ -1,0 +1,730 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.15
+-- Dumped by pg_dump version 9.6.15
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: baginvites; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.baginvites (
+    bagid integer NOT NULL,
+    inviterid integer NOT NULL,
+    token character(20) NOT NULL,
+    createdat timestamp without time zone DEFAULT now(),
+    acceptedat timestamp without time zone,
+    accepted boolean,
+    invitee text NOT NULL
+);
+
+
+ALTER TABLE public.baginvites OWNER TO regen;
+
+--
+-- Name: bagvalues; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.bagvalues (
+    savedbagid integer,
+    value text,
+    extra text
+);
+
+
+ALTER TABLE public.bagvalues OWNER TO regen;
+
+--
+-- Name: clob; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.clob (
+    clobid integer,
+    clobpage integer,
+    value text
+);
+ALTER TABLE ONLY public.clob ALTER COLUMN value SET STORAGE PLAIN;
+
+
+ALTER TABLE public.clob OWNER TO regen;
+
+--
+-- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.intermine_metadata (
+    key text,
+    value text,
+    blob_value bytea
+);
+
+
+ALTER TABLE public.intermine_metadata OWNER TO regen;
+
+--
+-- Name: listtrack; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.listtrack (
+    type text,
+    count integer,
+    buildmode text,
+    event text,
+    username text,
+    sessionidentifier text,
+    "timestamp" timestamp without time zone
+);
+
+
+ALTER TABLE public.listtrack OWNER TO regen;
+
+--
+-- Name: logintrack; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.logintrack (
+    username text,
+    "timestamp" timestamp without time zone
+);
+
+
+ALTER TABLE public.logintrack OWNER TO regen;
+
+--
+-- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: regen
+--
+
+CREATE SEQUENCE public.objectstore_unique_integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.objectstore_unique_integer OWNER TO regen;
+
+--
+-- Name: osbag_int; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.osbag_int (
+    bagid integer,
+    value integer
+);
+
+
+ALTER TABLE public.osbag_int OWNER TO regen;
+
+--
+-- Name: permanenttoken; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.permanenttoken (
+    id integer NOT NULL,
+    intermine_level text,
+    token text,
+    datecreated bigint,
+    message text,
+    userprofileid integer
+);
+
+
+ALTER TABLE public.permanenttoken OWNER TO regen;
+
+--
+-- Name: precompute_index; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.precompute_index (
+    name text,
+    statement text,
+    category text
+);
+
+
+ALTER TABLE public.precompute_index OWNER TO regen;
+
+--
+-- Name: querytrack; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.querytrack (
+    type text,
+    username text,
+    sessionidentifier text,
+    "timestamp" timestamp without time zone
+);
+
+
+ALTER TABLE public.querytrack OWNER TO regen;
+
+--
+-- Name: savedbag; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.savedbag (
+    description text,
+    id integer NOT NULL,
+    osbid integer NOT NULL,
+    intermine_state text,
+    type text,
+    name text,
+    datecreated bigint,
+    userprofileid integer
+);
+
+
+ALTER TABLE public.savedbag OWNER TO regen;
+
+--
+-- Name: savedquery; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.savedquery (
+    id integer NOT NULL,
+    query text,
+    userprofileid integer
+);
+
+
+ALTER TABLE public.savedquery OWNER TO regen;
+
+--
+-- Name: savedtemplatequery; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.savedtemplatequery (
+    id integer NOT NULL,
+    templatequery text,
+    userprofileid integer
+);
+
+
+ALTER TABLE public.savedtemplatequery OWNER TO regen;
+
+--
+-- Name: searchtrack; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.searchtrack (
+    keyword text,
+    username text,
+    sessionidentifier text,
+    "timestamp" timestamp without time zone
+);
+
+
+ALTER TABLE public.searchtrack OWNER TO regen;
+
+--
+-- Name: serial; Type: SEQUENCE; Schema: public; Owner: regen
+--
+
+CREATE SEQUENCE public.serial
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.serial OWNER TO regen;
+
+--
+-- Name: sharedbag; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.sharedbag (
+    bagid integer NOT NULL,
+    userprofileid integer NOT NULL
+);
+
+
+ALTER TABLE public.sharedbag OWNER TO regen;
+
+--
+-- Name: tag; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.tag (
+    id integer NOT NULL,
+    objectidentifier text,
+    type text,
+    tagname text,
+    userprofileid integer
+);
+
+
+ALTER TABLE public.tag OWNER TO regen;
+
+--
+-- Name: templatesummary; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.templatesummary (
+    summary text,
+    id integer NOT NULL,
+    templateid integer
+);
+
+
+ALTER TABLE public.templatesummary OWNER TO regen;
+
+--
+-- Name: templatetrack; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.templatetrack (
+    templatename text,
+    username text,
+    sessionidentifier text,
+    "timestamp" timestamp without time zone
+);
+
+
+ALTER TABLE public.templatetrack OWNER TO regen;
+
+--
+-- Name: userpreferences; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.userpreferences (
+    userprofileid integer NOT NULL,
+    preferencename text NOT NULL,
+    preferencevalue text
+);
+
+
+ALTER TABLE public.userpreferences OWNER TO regen;
+
+--
+-- Name: userprofile; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.userprofile (
+    superuser boolean NOT NULL,
+    id integer NOT NULL,
+    password text,
+    username text,
+    apikey text,
+    localaccount boolean NOT NULL
+);
+
+
+ALTER TABLE public.userprofile OWNER TO regen;
+
+--
+-- Data for Name: baginvites; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.baginvites (bagid, inviterid, token, createdat, acceptedat, accepted, invitee) FROM stdin;
+\.
+
+
+--
+-- Data for Name: bagvalues; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.bagvalues (savedbagid, value, extra) FROM stdin;
+\.
+
+
+--
+-- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.clob (clobid, clobpage, value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.intermine_metadata (key, value, blob_value) FROM stdin;
+model	<model name="userprofile" package="org.intermine.api.userprofile">\n<class name="UserProfile" is-interface="false">\n\t<attribute name="username" type="java.lang.String"/>\n\t<attribute name="password" type="java.lang.String"/>\n\t<attribute name="apiKey" type="java.lang.String"/>\n\t<attribute name="localAccount" type="boolean"/>\n\t<attribute name="superuser" type="boolean"/>\n\t<collection name="savedBags" referenced-type="SavedBag" reverse-reference="userProfile"/>\n\t<collection name="savedQuerys" referenced-type="SavedQuery" reverse-reference="userProfile"/>\n\t<collection name="savedTemplateQuerys" referenced-type="SavedTemplateQuery" reverse-reference="userProfile"/>\n\t<collection name="tags" referenced-type="Tag" reverse-reference="userProfile"/>\n\t<collection name="permanentTokens" referenced-type="PermanentToken" reverse-reference="userProfile"/>\n</class>\n<class name="SavedBag" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="type" type="java.lang.String"/>\n\t<attribute name="description" type="java.lang.String"/>\n\t<attribute name="dateCreated" type="java.util.Date"/>\n\t<attribute name="osbId" type="int"/>\n\t<attribute name="state" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedBags"/>\n</class>\n<class name="SavedQuery" is-interface="false">\n\t<attribute name="query" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedQuerys"/>\n</class>\n<class name="SavedTemplateQuery" is-interface="false">\n\t<attribute name="templateQuery" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedTemplateQuerys"/>\n\t<collection name="summaries" referenced-type="TemplateSummary" reverse-reference="template"/>\n</class>\n<class name="Tag" is-interface="false">\n\t<attribute name="tagName" type="java.lang.String"/>\n\t<attribute name="objectIdentifier" type="java.lang.String"/>\n\t<attribute name="type" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="tags"/>\n</class>\n<class name="TemplateSummary" is-interface="false">\n\t<attribute name="summary" type="java.lang.String"/>\n\t<reference name="template" referenced-type="SavedTemplateQuery" reverse-reference="summaries"/>\n</class>\n<class name="PermanentToken" is-interface="false">\n\t<attribute name="token" type="java.lang.String"/>\n\t<attribute name="level" type="java.lang.String"/>\n\t<attribute name="message" type="java.lang.String"/>\n\t<attribute name="dateCreated" type="java.util.Date"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="permanentTokens"/>\n</class>\n</model>	\N
+keyDefs	#Tue Oct 22 10:58:15 BST 2019\n	\N
+osversion	1	\N
+missingTables	InterMineObject	\N
+noNotXml	true	\N
+profileversion	2	\N
+serialNumber	-7547163096003223780	\N
+\.
+
+
+--
+-- Data for Name: listtrack; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.listtrack (type, count, buildmode, event, username, sessionidentifier, "timestamp") FROM stdin;
+\.
+
+
+--
+-- Data for Name: logintrack; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.logintrack (username, "timestamp") FROM stdin;
+\.
+
+
+--
+-- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: regen
+--
+
+SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
+
+
+--
+-- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.osbag_int (bagid, value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: permanenttoken; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.permanenttoken (id, intermine_level, token, datecreated, message, userprofileid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: precompute_index; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.precompute_index (name, statement, category) FROM stdin;
+\.
+
+
+--
+-- Data for Name: querytrack; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.querytrack (type, username, sessionidentifier, "timestamp") FROM stdin;
+\.
+
+
+--
+-- Data for Name: savedbag; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.savedbag (description, id, osbid, intermine_state, type, name, datecreated, userprofileid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: savedquery; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.savedquery (id, query, userprofileid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: savedtemplatequery; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.savedtemplatequery (id, templatequery, userprofileid) FROM stdin;
+1000082	\n<template name="All_Proteins_In_Organism_To_Publications" title="All proteins in organism --&gt; Publications." comment=""><query name="All_Proteins_In_Organism_To_Publications" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession Protein.organism.name Protein.publications.firstAuthor Protein.publications.title Protein.publications.year Protein.publications.journal Protein.publications.volume Protein.publications.pages Protein.publications.pubMedId" longDescription="" sortOrder="Protein.primaryIdentifier asc"><constraint path="Protein.organism.name" editable="true" description="Organism.name" op="=" value="Plasmodium falciparum 3D7"/></query></template>	1000001
+1000083	\n<template name="Gene_Protein" title="Gene --&gt; Proteins." comment="06.06.07 updated to work from gene class - Philip"><query name="Gene_Protein" model="genomic" view="Gene.primaryIdentifier Gene.symbol Gene.proteins.primaryIdentifier Gene.proteins.primaryAccession" longDescription="Show the proteins for a particular gene." sortOrder="Gene.primaryIdentifier asc"><pathDescription pathString="Gene.proteins" description="Protein"/><constraint path="Gene" editable="true" op="LOOKUP" value="ABRA"/></query></template>	1000001
+1000084	\n<template name="Organism_Protein" title="Organism --&gt; All proteins." comment=""><query name="Organism_Protein" model="genomic" view="Protein.primaryIdentifier Protein.primaryAccession" longDescription="Show all the proteins from a particular organism." sortOrder="Protein.primaryIdentifier asc"><constraint path="Protein.organism.name" editable="true" description="Show all the proteins from the organism:" op="=" value="Plasmodium falciparum 3D7"/></query></template>	1000001
+\.
+
+
+--
+-- Data for Name: searchtrack; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.searchtrack (keyword, username, sessionidentifier, "timestamp") FROM stdin;
+\.
+
+
+--
+-- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: regen
+--
+
+SELECT pg_catalog.setval('public.serial', 1, true);
+
+
+--
+-- Data for Name: sharedbag; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.sharedbag (bagid, userprofileid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: tag; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.tag (id, objectidentifier, type, tagname, userprofileid) FROM stdin;
+1000002	BioEntity.organism	reference	im:summary	1000001
+1000003	Gene_allGOTerms	template	im:public	1000001
+1000004	LocatedSequenceFeature.overlappingFeatures	collection	im:aspect:Genomics	1000001
+1000005	MRNA.UTRs	collection	im:aspect:Genomics	1000001
+1000006	Organism_Protein	template	im:public	1000001
+1000007	org.intermine.model.bio.NcRNA	class	im:aspect:Genomics	1000001
+1000008	Gene_Protein	template	im:frontpage	1000001
+1000009	Gene_Protein	template	im:public	1000001
+1000010	Protein_GOtermsSpecificOntology	template	im:public	1000001
+1000011	Gene_Protein	template	im:aspect:Genomics	1000001
+1000012	Gene_particularGoannotation	template	im:aspect:Genomics	1000001
+1000013	Protein.keywords	collection	im:aspect:Proteins	1000001
+1000015	MicroarrayOligo.transcript	reference	im:summary	1000001
+1000016	GOtermidentifier_name	template	im:public	1000001
+1000017	ProteinInteraction.protein	reference	im:aspect:Proteins	1000001
+1000018	org.intermine.model.bio.UTR	class	im:aspect:Genomics	1000001
+1000019	Protein.genes	collection	im:aspect:Genomics	1000001
+1000020	LocatedSequenceFeature.chromosomeLocation	reference	im:aspect:Genomics	1000001
+1000022	Gene.proteins	collection	im:summary	1000001
+1000023	Gene_GO	template	im:frontpage	1000001
+1000024	Gene_GO	template	im:public	1000001
+1000025	BioEntity.subjects	collection	im:hidden	1000001
+1000026	Chromosome.transcripts	collection	im:aspect:Genomics	1000001
+1000027	Protein.comments	collection	im:summary	1000001
+1000028	Protein.publications	collection	im:summary	1000001
+1000029	Gene.UTRs	collection	im:aspect:Genomics	1000001
+1000030	org.intermine.model.bio.ChromosomeBand	class	im:aspect:Genomics	1000001
+1000031	Protein_GOtermsSpecificOntology	template	im:aspect:Proteins	1000001
+1000032	org.intermine.model.bio.Protein	class	im:preferredBagType	1000001
+1000033	Protein.proteinDomains	collection	im:aspect:Proteins	1000001
+1000034	RegulatoryRegion.gene	reference	im:summary	1000001
+1000035	Protein.genes	collection	im:summary	1000001
+1000036	Gene_Protein	template	im:aspect:Proteins	1000001
+1000037	org.intermine.model.bio.MRNA	class	im:aspect:Genomics	1000001
+1000038	All_Proteins_In_Organism_To_Publications	template	im:frontpage	1000001
+1000039	Gene.transcripts	collection	im:aspect:Genomics	1000001
+1000040	org.intermine.model.bio.TFBindingSite	class	im:aspect:Genomics	1000001
+1000041	Transcript.gene	reference	im:aspect:Genomics	1000001
+1000042	Gene_GO	template	im:aspect:Genomics	1000001
+1000043	org.intermine.model.bio.GOTerm	class	im:aspect:Genomics	1000001
+1000044	Evidence.relations	collection	im:hidden	1000001
+1000045	BioEntity.objects	collection	im:hidden	1000001
+1000046	Gene_allGOTerms	template	im:aspect:Genomics	1000001
+1000047	Organism_GoTerm_Gene	template	im:public	1000001
+1000048	Transcript.introns	collection	im:aspect:Genomics	1000001
+1000049	CDS.MRNA	reference	im:aspect:Genomics	1000001
+1000050	CDS.protein	reference	im:aspect:Proteins	1000001
+1000051	Gene_Identifiers	template	im:public	1000001
+1000052	CDS.polypeptides	collection	im:aspect:Proteins	1000001
+1000053	org.intermine.model.bio.Chromosome	class	im:aspect:Genomics	1000001
+1000054	Protein_To_Gene_Type_Converter	template	im:converter	1000001
+1000055	Gene_particularGoannotation	template	im:public	1000001
+1000056	Organism_Protein	template	im:frontpage	1000001
+1000057	Protein.features	collection	im:aspect:Proteins	1000001
+1000058	Gene.publications	collection	im:summary	1000001
+1000059	Chromosome.genes	collection	im:aspect:Genomics	1000001
+1000060	BindingSite.factor	reference	im:summary	1000001
+1000061	Protein_GOterms	template	im:frontpage	1000001
+1000062	Gene.proteins	collection	im:aspect:Proteins	1000001
+1000063	org.intermine.model.bio.Gene	class	im:aspect:Genomics	1000001
+1000064	Chromosome.features	collection	im:aspect:Genomics	1000001
+1000065	BioEntity.relations	collection	im:hidden	1000001
+1000066	GO_name_Gene	template	im:aspect:Genomics	1000001
+1000067	LocatedSequenceFeature.chromosome	reference	im:aspect:Genomics	1000001
+1000068	All_Proteins_In_Organism_To_Publications	template	im:public	1000001
+1000069	org.intermine.model.bio.SnoRNA	class	im:aspect:Genomics	1000001
+1000070	org.intermine.model.bio.Protein	class	im:aspect:Proteins	1000001
+1000071	Gene_allGOTerms	template	im:frontpage	1000001
+1000072	Organism_GoTerm_GeneWithannotation	template	im:public	1000001
+1000073	Organism_GoTerm_Gene	template	im:aspect:Genomics	1000001
+1000074	LocatedSequenceFeature.sequence	reference	im:aspect:Genomics	1000001
+1000075	org.intermine.model.bio.Gene	class	im:preferredBagType	1000001
+1000076	BioEntity.synonyms	collection	im:summary	1000001
+1000077	Protein.sequence	reference	im:aspect:Proteins	1000001
+1000078	Gene_To_Protein_Type_Converter	template	im:converter	1000001
+1000079	Protein_GOterms	template	im:public	1000001
+1000080	org.intermine.model.bio.Transcript	class	im:aspect:Genomics	1000001
+1000081	Organism_GoTerm_GeneWithannotation	template	im:frontpage	1000001
+\.
+
+
+--
+-- Data for Name: templatesummary; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.templatesummary (summary, id, templateid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: templatetrack; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.templatetrack (templatename, username, sessionidentifier, "timestamp") FROM stdin;
+\.
+
+
+--
+-- Data for Name: userpreferences; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.userpreferences (userprofileid, preferencename, preferencevalue) FROM stdin;
+\.
+
+
+--
+-- Data for Name: userprofile; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.userprofile (superuser, id, password, username, apikey, localaccount) FROM stdin;
+t	1000001	ZDGXS/5VtrRsjWMTOFYbLr2WohjrgaxNF+knzlUy4Z4=QqLHRyva3IyVJl8rp0FZMSbz8Plw7DeJemokaCW0Zes=	test_user@mail_account	\N	t
+\.
+
+
+--
+-- Name: baginvites baginvites_token_key; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.baginvites
+    ADD CONSTRAINT baginvites_token_key UNIQUE (token);
+
+
+--
+-- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.clob
+    ADD CONSTRAINT clob_index UNIQUE (clobid, clobpage);
+
+
+--
+-- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.intermine_metadata
+    ADD CONSTRAINT intermine_metadata_key UNIQUE (key);
+
+
+--
+-- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.osbag_int
+    ADD CONSTRAINT osbag_int_index1 UNIQUE (bagid, value);
+
+
+--
+-- Name: permanenttoken permanenttoken_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.permanenttoken
+    ADD CONSTRAINT permanenttoken_pkey UNIQUE (id);
+
+
+--
+-- Name: savedbag savedbag_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.savedbag
+    ADD CONSTRAINT savedbag_pkey UNIQUE (id);
+
+
+--
+-- Name: savedquery savedquery_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.savedquery
+    ADD CONSTRAINT savedquery_pkey UNIQUE (id);
+
+
+--
+-- Name: savedtemplatequery savedtemplatequery_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.savedtemplatequery
+    ADD CONSTRAINT savedtemplatequery_pkey UNIQUE (id);
+
+
+--
+-- Name: tag tag_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.tag
+    ADD CONSTRAINT tag_pkey UNIQUE (id);
+
+
+--
+-- Name: templatesummary templatesummary_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.templatesummary
+    ADD CONSTRAINT templatesummary_pkey UNIQUE (id);
+
+
+--
+-- Name: userpreferences userpreferences_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.userpreferences
+    ADD CONSTRAINT userpreferences_pkey PRIMARY KEY (userprofileid, preferencename);
+
+
+--
+-- Name: userprofile userprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.userprofile
+    ADD CONSTRAINT userprofile_pkey UNIQUE (id);
+
+
+--
+-- Name: bagvalues_index1; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE UNIQUE INDEX bagvalues_index1 ON public.bagvalues USING btree (savedbagid, value, extra);
+
+
+--
+-- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX osbag_int_index2 ON public.osbag_int USING btree (value, bagid);
+
+
+--
+-- Name: sharedbag_index1; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE UNIQUE INDEX sharedbag_index1 ON public.sharedbag USING btree (bagid, userprofileid);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

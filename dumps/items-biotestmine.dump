@@ -1,0 +1,310 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.15
+-- Dumped by pg_dump version 9.6.15
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: attribute; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.attribute (
+    name text,
+    intermine_value text,
+    itemid integer
+);
+
+
+ALTER TABLE public.attribute OWNER TO regen;
+
+--
+-- Name: clob; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.clob (
+    clobid integer,
+    clobpage integer,
+    value text
+);
+ALTER TABLE ONLY public.clob ALTER COLUMN value SET STORAGE PLAIN;
+
+
+ALTER TABLE public.clob OWNER TO regen;
+
+--
+-- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.intermine_metadata (
+    key text,
+    value text,
+    blob_value bytea
+);
+
+
+ALTER TABLE public.intermine_metadata OWNER TO regen;
+
+--
+-- Name: item; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.item (
+    classname text,
+    identifier text,
+    id integer NOT NULL,
+    implementations text
+);
+
+
+ALTER TABLE public.item OWNER TO regen;
+
+--
+-- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: regen
+--
+
+CREATE SEQUENCE public.objectstore_unique_integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.objectstore_unique_integer OWNER TO regen;
+
+--
+-- Name: osbag_int; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.osbag_int (
+    bagid integer,
+    value integer
+);
+
+
+ALTER TABLE public.osbag_int OWNER TO regen;
+
+--
+-- Name: reference; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.reference (
+    refid text,
+    name text,
+    itemid integer
+);
+
+
+ALTER TABLE public.reference OWNER TO regen;
+
+--
+-- Name: referencelist; Type: TABLE; Schema: public; Owner: regen
+--
+
+CREATE TABLE public.referencelist (
+    name text,
+    refids text,
+    itemid integer
+);
+
+
+ALTER TABLE public.referencelist OWNER TO regen;
+
+--
+-- Name: serial; Type: SEQUENCE; Schema: public; Owner: regen
+--
+
+CREATE SEQUENCE public.serial
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.serial OWNER TO regen;
+
+--
+-- Data for Name: attribute; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.attribute (name, intermine_value, itemid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.clob (clobid, clobpage, value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.intermine_metadata (key, value, blob_value) FROM stdin;
+model	<model name="fulldata" package="org.intermine.model.fulldata">\n<class name="Item" is-interface="false">\n\t<attribute name="className" type="java.lang.String"/>\n\t<attribute name="implementations" type="java.lang.String"/>\n\t<attribute name="identifier" type="java.lang.String"/>\n\t<collection name="attributes" referenced-type="Attribute" reverse-reference="item"/>\n\t<collection name="collections" referenced-type="ReferenceList" reverse-reference="item"/>\n\t<collection name="references" referenced-type="Reference" reverse-reference="item"/>\n</class>\n<class name="Attribute" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="value" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="attributes"/>\n</class>\n<class name="ReferenceList" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="refIds" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="collections"/>\n</class>\n<class name="Reference" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="refId" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="references"/>\n</class>\n</model>	\N
+keyDefs	#Tue Oct 22 10:57:23 BST 2019\nReference.key=item\nReference.key_refid=refId\nAttribute.key=item\nItem.key=identifier\nReferenceList.key=item\n	\N
+osversion	1	\N
+missingTables	InterMineObject	\N
+noNotXml	true	\N
+serialNumber	-5890146817168729159	\N
+\.
+
+
+--
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.item (classname, identifier, id, implementations) FROM stdin;
+\.
+
+
+--
+-- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: regen
+--
+
+SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
+
+
+--
+-- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.osbag_int (bagid, value) FROM stdin;
+\.
+
+
+--
+-- Data for Name: reference; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.reference (refid, name, itemid) FROM stdin;
+\.
+
+
+--
+-- Data for Name: referencelist; Type: TABLE DATA; Schema: public; Owner: regen
+--
+
+COPY public.referencelist (name, refids, itemid) FROM stdin;
+\.
+
+
+--
+-- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: regen
+--
+
+SELECT pg_catalog.setval('public.serial', 1, false);
+
+
+--
+-- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.clob
+    ADD CONSTRAINT clob_index UNIQUE (clobid, clobpage);
+
+
+--
+-- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.intermine_metadata
+    ADD CONSTRAINT intermine_metadata_key UNIQUE (key);
+
+
+--
+-- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.item
+    ADD CONSTRAINT item_pkey UNIQUE (id);
+
+
+--
+-- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: regen
+--
+
+ALTER TABLE ONLY public.osbag_int
+    ADD CONSTRAINT osbag_int_index1 UNIQUE (bagid, value);
+
+
+--
+-- Name: attribute__key; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX attribute__key ON public.attribute USING btree (itemid);
+
+
+--
+-- Name: item__key; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX item__key ON public.item USING btree (identifier, id);
+
+
+--
+-- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX osbag_int_index2 ON public.osbag_int USING btree (value, bagid);
+
+
+--
+-- Name: reference__key; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX reference__key ON public.reference USING btree (itemid);
+
+
+--
+-- Name: reference__key_refid; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX reference__key_refid ON public.reference USING btree (refid);
+
+
+--
+-- Name: referencelist__key; Type: INDEX; Schema: public; Owner: regen
+--
+
+CREATE INDEX referencelist__key ON public.referencelist USING btree (itemid);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

@@ -30,6 +30,10 @@ if test -z $NO_CONFIG_OVERRIDE; then
   NO_CONFIG_OVERRIDE=false
 fi
 
+if test -z $BUILD_DATASET; then
+  BUILD_DATASET=false
+fi
+
 cd $HOME
 
 # Pull in the server code.

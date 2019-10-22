@@ -85,7 +85,6 @@ else
                    $db
           echo "#---> Restoring $db from dump ..."
           psql --username $PSQL_USER \
-               --encoding $DB_ENCODING \
                $db < $DUMP_DIR/$db.dump
       fi
   done

@@ -2,13 +2,13 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.15
--- Dumped by pg_dump version 9.6.15
+-- Dumped from database version 9.6.14
+-- Dumped by pg_dump version 10.9 (Ubuntu 10.9-1.pgdg16.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
+SET client_encoding = 'SQL_ASCII';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: baginvites; Type: TABLE; Schema: public; Owner: regen
+-- Name: baginvites; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.baginvites (
@@ -49,10 +49,10 @@ CREATE TABLE public.baginvites (
 );
 
 
-ALTER TABLE public.baginvites OWNER TO regen;
+ALTER TABLE public.baginvites OWNER TO postgres;
 
 --
--- Name: bagvalues; Type: TABLE; Schema: public; Owner: regen
+-- Name: bagvalues; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.bagvalues (
@@ -62,10 +62,10 @@ CREATE TABLE public.bagvalues (
 );
 
 
-ALTER TABLE public.bagvalues OWNER TO regen;
+ALTER TABLE public.bagvalues OWNER TO postgres;
 
 --
--- Name: clob; Type: TABLE; Schema: public; Owner: regen
+-- Name: clob; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.clob (
@@ -76,10 +76,10 @@ CREATE TABLE public.clob (
 ALTER TABLE ONLY public.clob ALTER COLUMN value SET STORAGE PLAIN;
 
 
-ALTER TABLE public.clob OWNER TO regen;
+ALTER TABLE public.clob OWNER TO postgres;
 
 --
--- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: regen
+-- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.intermine_metadata (
@@ -89,10 +89,10 @@ CREATE TABLE public.intermine_metadata (
 );
 
 
-ALTER TABLE public.intermine_metadata OWNER TO regen;
+ALTER TABLE public.intermine_metadata OWNER TO postgres;
 
 --
--- Name: listtrack; Type: TABLE; Schema: public; Owner: regen
+-- Name: listtrack; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.listtrack (
@@ -106,10 +106,10 @@ CREATE TABLE public.listtrack (
 );
 
 
-ALTER TABLE public.listtrack OWNER TO regen;
+ALTER TABLE public.listtrack OWNER TO postgres;
 
 --
--- Name: logintrack; Type: TABLE; Schema: public; Owner: regen
+-- Name: logintrack; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.logintrack (
@@ -118,10 +118,10 @@ CREATE TABLE public.logintrack (
 );
 
 
-ALTER TABLE public.logintrack OWNER TO regen;
+ALTER TABLE public.logintrack OWNER TO postgres;
 
 --
--- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: regen
+-- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.objectstore_unique_integer
@@ -132,10 +132,10 @@ CREATE SEQUENCE public.objectstore_unique_integer
     CACHE 1;
 
 
-ALTER TABLE public.objectstore_unique_integer OWNER TO regen;
+ALTER TABLE public.objectstore_unique_integer OWNER TO postgres;
 
 --
--- Name: osbag_int; Type: TABLE; Schema: public; Owner: regen
+-- Name: osbag_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.osbag_int (
@@ -144,10 +144,10 @@ CREATE TABLE public.osbag_int (
 );
 
 
-ALTER TABLE public.osbag_int OWNER TO regen;
+ALTER TABLE public.osbag_int OWNER TO postgres;
 
 --
--- Name: permanenttoken; Type: TABLE; Schema: public; Owner: regen
+-- Name: permanenttoken; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.permanenttoken (
@@ -160,10 +160,10 @@ CREATE TABLE public.permanenttoken (
 );
 
 
-ALTER TABLE public.permanenttoken OWNER TO regen;
+ALTER TABLE public.permanenttoken OWNER TO postgres;
 
 --
--- Name: precompute_index; Type: TABLE; Schema: public; Owner: regen
+-- Name: precompute_index; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.precompute_index (
@@ -173,10 +173,10 @@ CREATE TABLE public.precompute_index (
 );
 
 
-ALTER TABLE public.precompute_index OWNER TO regen;
+ALTER TABLE public.precompute_index OWNER TO postgres;
 
 --
--- Name: querytrack; Type: TABLE; Schema: public; Owner: regen
+-- Name: querytrack; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.querytrack (
@@ -187,10 +187,10 @@ CREATE TABLE public.querytrack (
 );
 
 
-ALTER TABLE public.querytrack OWNER TO regen;
+ALTER TABLE public.querytrack OWNER TO postgres;
 
 --
--- Name: savedbag; Type: TABLE; Schema: public; Owner: regen
+-- Name: savedbag; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.savedbag (
@@ -205,10 +205,10 @@ CREATE TABLE public.savedbag (
 );
 
 
-ALTER TABLE public.savedbag OWNER TO regen;
+ALTER TABLE public.savedbag OWNER TO postgres;
 
 --
--- Name: savedquery; Type: TABLE; Schema: public; Owner: regen
+-- Name: savedquery; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.savedquery (
@@ -218,10 +218,10 @@ CREATE TABLE public.savedquery (
 );
 
 
-ALTER TABLE public.savedquery OWNER TO regen;
+ALTER TABLE public.savedquery OWNER TO postgres;
 
 --
--- Name: savedtemplatequery; Type: TABLE; Schema: public; Owner: regen
+-- Name: savedtemplatequery; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.savedtemplatequery (
@@ -231,10 +231,10 @@ CREATE TABLE public.savedtemplatequery (
 );
 
 
-ALTER TABLE public.savedtemplatequery OWNER TO regen;
+ALTER TABLE public.savedtemplatequery OWNER TO postgres;
 
 --
--- Name: searchtrack; Type: TABLE; Schema: public; Owner: regen
+-- Name: searchtrack; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.searchtrack (
@@ -245,10 +245,10 @@ CREATE TABLE public.searchtrack (
 );
 
 
-ALTER TABLE public.searchtrack OWNER TO regen;
+ALTER TABLE public.searchtrack OWNER TO postgres;
 
 --
--- Name: serial; Type: SEQUENCE; Schema: public; Owner: regen
+-- Name: serial; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.serial
@@ -259,10 +259,10 @@ CREATE SEQUENCE public.serial
     CACHE 1;
 
 
-ALTER TABLE public.serial OWNER TO regen;
+ALTER TABLE public.serial OWNER TO postgres;
 
 --
--- Name: sharedbag; Type: TABLE; Schema: public; Owner: regen
+-- Name: sharedbag; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.sharedbag (
@@ -271,10 +271,10 @@ CREATE TABLE public.sharedbag (
 );
 
 
-ALTER TABLE public.sharedbag OWNER TO regen;
+ALTER TABLE public.sharedbag OWNER TO postgres;
 
 --
--- Name: tag; Type: TABLE; Schema: public; Owner: regen
+-- Name: tag; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.tag (
@@ -286,10 +286,10 @@ CREATE TABLE public.tag (
 );
 
 
-ALTER TABLE public.tag OWNER TO regen;
+ALTER TABLE public.tag OWNER TO postgres;
 
 --
--- Name: templatesummary; Type: TABLE; Schema: public; Owner: regen
+-- Name: templatesummary; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.templatesummary (
@@ -299,10 +299,10 @@ CREATE TABLE public.templatesummary (
 );
 
 
-ALTER TABLE public.templatesummary OWNER TO regen;
+ALTER TABLE public.templatesummary OWNER TO postgres;
 
 --
--- Name: templatetrack; Type: TABLE; Schema: public; Owner: regen
+-- Name: templatetrack; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.templatetrack (
@@ -313,10 +313,10 @@ CREATE TABLE public.templatetrack (
 );
 
 
-ALTER TABLE public.templatetrack OWNER TO regen;
+ALTER TABLE public.templatetrack OWNER TO postgres;
 
 --
--- Name: userpreferences; Type: TABLE; Schema: public; Owner: regen
+-- Name: userpreferences; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.userpreferences (
@@ -326,10 +326,10 @@ CREATE TABLE public.userpreferences (
 );
 
 
-ALTER TABLE public.userpreferences OWNER TO regen;
+ALTER TABLE public.userpreferences OWNER TO postgres;
 
 --
--- Name: userprofile; Type: TABLE; Schema: public; Owner: regen
+-- Name: userprofile; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.userprofile (
@@ -342,10 +342,10 @@ CREATE TABLE public.userprofile (
 );
 
 
-ALTER TABLE public.userprofile OWNER TO regen;
+ALTER TABLE public.userprofile OWNER TO postgres;
 
 --
--- Data for Name: baginvites; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: baginvites; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.baginvites (bagid, inviterid, token, createdat, acceptedat, accepted, invitee) FROM stdin;
@@ -353,7 +353,7 @@ COPY public.baginvites (bagid, inviterid, token, createdat, acceptedat, accepted
 
 
 --
--- Data for Name: bagvalues; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: bagvalues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.bagvalues (savedbagid, value, extra) FROM stdin;
@@ -361,7 +361,7 @@ COPY public.bagvalues (savedbagid, value, extra) FROM stdin;
 
 
 --
--- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.clob (clobid, clobpage, value) FROM stdin;
@@ -369,22 +369,22 @@ COPY public.clob (clobid, clobpage, value) FROM stdin;
 
 
 --
--- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.intermine_metadata (key, value, blob_value) FROM stdin;
 model	<model name="userprofile" package="org.intermine.api.userprofile">\n<class name="UserProfile" is-interface="false">\n\t<attribute name="username" type="java.lang.String"/>\n\t<attribute name="password" type="java.lang.String"/>\n\t<attribute name="apiKey" type="java.lang.String"/>\n\t<attribute name="localAccount" type="boolean"/>\n\t<attribute name="superuser" type="boolean"/>\n\t<collection name="savedBags" referenced-type="SavedBag" reverse-reference="userProfile"/>\n\t<collection name="savedQuerys" referenced-type="SavedQuery" reverse-reference="userProfile"/>\n\t<collection name="savedTemplateQuerys" referenced-type="SavedTemplateQuery" reverse-reference="userProfile"/>\n\t<collection name="tags" referenced-type="Tag" reverse-reference="userProfile"/>\n\t<collection name="permanentTokens" referenced-type="PermanentToken" reverse-reference="userProfile"/>\n</class>\n<class name="SavedBag" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="type" type="java.lang.String"/>\n\t<attribute name="description" type="java.lang.String"/>\n\t<attribute name="dateCreated" type="java.util.Date"/>\n\t<attribute name="osbId" type="int"/>\n\t<attribute name="state" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedBags"/>\n</class>\n<class name="SavedQuery" is-interface="false">\n\t<attribute name="query" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedQuerys"/>\n</class>\n<class name="SavedTemplateQuery" is-interface="false">\n\t<attribute name="templateQuery" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="savedTemplateQuerys"/>\n\t<collection name="summaries" referenced-type="TemplateSummary" reverse-reference="template"/>\n</class>\n<class name="Tag" is-interface="false">\n\t<attribute name="tagName" type="java.lang.String"/>\n\t<attribute name="objectIdentifier" type="java.lang.String"/>\n\t<attribute name="type" type="java.lang.String"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="tags"/>\n</class>\n<class name="TemplateSummary" is-interface="false">\n\t<attribute name="summary" type="java.lang.String"/>\n\t<reference name="template" referenced-type="SavedTemplateQuery" reverse-reference="summaries"/>\n</class>\n<class name="PermanentToken" is-interface="false">\n\t<attribute name="token" type="java.lang.String"/>\n\t<attribute name="level" type="java.lang.String"/>\n\t<attribute name="message" type="java.lang.String"/>\n\t<attribute name="dateCreated" type="java.util.Date"/>\n\t<reference name="userProfile" referenced-type="UserProfile" reverse-reference="permanentTokens"/>\n</class>\n</model>	\N
-keyDefs	#Tue Oct 22 10:58:15 BST 2019\n	\N
+keyDefs	#Tue Oct 22 12:59:44 UTC 2019\n	\N
 osversion	1	\N
 missingTables	InterMineObject	\N
 noNotXml	true	\N
 profileversion	2	\N
-serialNumber	-7547163096003223780	\N
+serialNumber	-8961999643484326906	\N
 \.
 
 
 --
--- Data for Name: listtrack; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: listtrack; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.listtrack (type, count, buildmode, event, username, sessionidentifier, "timestamp") FROM stdin;
@@ -392,7 +392,7 @@ COPY public.listtrack (type, count, buildmode, event, username, sessionidentifie
 
 
 --
--- Data for Name: logintrack; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: logintrack; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.logintrack (username, "timestamp") FROM stdin;
@@ -400,14 +400,7 @@ COPY public.logintrack (username, "timestamp") FROM stdin;
 
 
 --
--- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: regen
---
-
-SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
-
-
---
--- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.osbag_int (bagid, value) FROM stdin;
@@ -415,7 +408,7 @@ COPY public.osbag_int (bagid, value) FROM stdin;
 
 
 --
--- Data for Name: permanenttoken; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: permanenttoken; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.permanenttoken (id, intermine_level, token, datecreated, message, userprofileid) FROM stdin;
@@ -423,7 +416,7 @@ COPY public.permanenttoken (id, intermine_level, token, datecreated, message, us
 
 
 --
--- Data for Name: precompute_index; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: precompute_index; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.precompute_index (name, statement, category) FROM stdin;
@@ -431,7 +424,7 @@ COPY public.precompute_index (name, statement, category) FROM stdin;
 
 
 --
--- Data for Name: querytrack; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: querytrack; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.querytrack (type, username, sessionidentifier, "timestamp") FROM stdin;
@@ -439,7 +432,7 @@ COPY public.querytrack (type, username, sessionidentifier, "timestamp") FROM std
 
 
 --
--- Data for Name: savedbag; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: savedbag; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.savedbag (description, id, osbid, intermine_state, type, name, datecreated, userprofileid) FROM stdin;
@@ -447,7 +440,7 @@ COPY public.savedbag (description, id, osbid, intermine_state, type, name, datec
 
 
 --
--- Data for Name: savedquery; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: savedquery; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.savedquery (id, query, userprofileid) FROM stdin;
@@ -455,7 +448,7 @@ COPY public.savedquery (id, query, userprofileid) FROM stdin;
 
 
 --
--- Data for Name: savedtemplatequery; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: savedtemplatequery; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.savedtemplatequery (id, templatequery, userprofileid) FROM stdin;
@@ -466,7 +459,7 @@ COPY public.savedtemplatequery (id, templatequery, userprofileid) FROM stdin;
 
 
 --
--- Data for Name: searchtrack; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: searchtrack; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.searchtrack (keyword, username, sessionidentifier, "timestamp") FROM stdin;
@@ -474,14 +467,7 @@ COPY public.searchtrack (keyword, username, sessionidentifier, "timestamp") FROM
 
 
 --
--- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: regen
---
-
-SELECT pg_catalog.setval('public.serial', 1, true);
-
-
---
--- Data for Name: sharedbag; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: sharedbag; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.sharedbag (bagid, userprofileid) FROM stdin;
@@ -489,93 +475,93 @@ COPY public.sharedbag (bagid, userprofileid) FROM stdin;
 
 
 --
--- Data for Name: tag; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: tag; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.tag (id, objectidentifier, type, tagname, userprofileid) FROM stdin;
-1000002	BioEntity.organism	reference	im:summary	1000001
-1000003	Gene_allGOTerms	template	im:public	1000001
-1000004	LocatedSequenceFeature.overlappingFeatures	collection	im:aspect:Genomics	1000001
-1000005	MRNA.UTRs	collection	im:aspect:Genomics	1000001
-1000006	Organism_Protein	template	im:public	1000001
-1000007	org.intermine.model.bio.NcRNA	class	im:aspect:Genomics	1000001
-1000008	Gene_Protein	template	im:frontpage	1000001
-1000009	Gene_Protein	template	im:public	1000001
-1000010	Protein_GOtermsSpecificOntology	template	im:public	1000001
-1000011	Gene_Protein	template	im:aspect:Genomics	1000001
-1000012	Gene_particularGoannotation	template	im:aspect:Genomics	1000001
-1000013	Protein.keywords	collection	im:aspect:Proteins	1000001
-1000015	MicroarrayOligo.transcript	reference	im:summary	1000001
-1000016	GOtermidentifier_name	template	im:public	1000001
-1000017	ProteinInteraction.protein	reference	im:aspect:Proteins	1000001
-1000018	org.intermine.model.bio.UTR	class	im:aspect:Genomics	1000001
-1000019	Protein.genes	collection	im:aspect:Genomics	1000001
-1000020	LocatedSequenceFeature.chromosomeLocation	reference	im:aspect:Genomics	1000001
-1000022	Gene.proteins	collection	im:summary	1000001
-1000023	Gene_GO	template	im:frontpage	1000001
-1000024	Gene_GO	template	im:public	1000001
-1000025	BioEntity.subjects	collection	im:hidden	1000001
-1000026	Chromosome.transcripts	collection	im:aspect:Genomics	1000001
-1000027	Protein.comments	collection	im:summary	1000001
-1000028	Protein.publications	collection	im:summary	1000001
-1000029	Gene.UTRs	collection	im:aspect:Genomics	1000001
-1000030	org.intermine.model.bio.ChromosomeBand	class	im:aspect:Genomics	1000001
-1000031	Protein_GOtermsSpecificOntology	template	im:aspect:Proteins	1000001
-1000032	org.intermine.model.bio.Protein	class	im:preferredBagType	1000001
-1000033	Protein.proteinDomains	collection	im:aspect:Proteins	1000001
-1000034	RegulatoryRegion.gene	reference	im:summary	1000001
-1000035	Protein.genes	collection	im:summary	1000001
-1000036	Gene_Protein	template	im:aspect:Proteins	1000001
-1000037	org.intermine.model.bio.MRNA	class	im:aspect:Genomics	1000001
-1000038	All_Proteins_In_Organism_To_Publications	template	im:frontpage	1000001
-1000039	Gene.transcripts	collection	im:aspect:Genomics	1000001
-1000040	org.intermine.model.bio.TFBindingSite	class	im:aspect:Genomics	1000001
-1000041	Transcript.gene	reference	im:aspect:Genomics	1000001
-1000042	Gene_GO	template	im:aspect:Genomics	1000001
-1000043	org.intermine.model.bio.GOTerm	class	im:aspect:Genomics	1000001
-1000044	Evidence.relations	collection	im:hidden	1000001
-1000045	BioEntity.objects	collection	im:hidden	1000001
-1000046	Gene_allGOTerms	template	im:aspect:Genomics	1000001
-1000047	Organism_GoTerm_Gene	template	im:public	1000001
-1000048	Transcript.introns	collection	im:aspect:Genomics	1000001
-1000049	CDS.MRNA	reference	im:aspect:Genomics	1000001
-1000050	CDS.protein	reference	im:aspect:Proteins	1000001
-1000051	Gene_Identifiers	template	im:public	1000001
-1000052	CDS.polypeptides	collection	im:aspect:Proteins	1000001
-1000053	org.intermine.model.bio.Chromosome	class	im:aspect:Genomics	1000001
-1000054	Protein_To_Gene_Type_Converter	template	im:converter	1000001
-1000055	Gene_particularGoannotation	template	im:public	1000001
-1000056	Organism_Protein	template	im:frontpage	1000001
-1000057	Protein.features	collection	im:aspect:Proteins	1000001
-1000058	Gene.publications	collection	im:summary	1000001
-1000059	Chromosome.genes	collection	im:aspect:Genomics	1000001
-1000060	BindingSite.factor	reference	im:summary	1000001
-1000061	Protein_GOterms	template	im:frontpage	1000001
-1000062	Gene.proteins	collection	im:aspect:Proteins	1000001
-1000063	org.intermine.model.bio.Gene	class	im:aspect:Genomics	1000001
-1000064	Chromosome.features	collection	im:aspect:Genomics	1000001
-1000065	BioEntity.relations	collection	im:hidden	1000001
-1000066	GO_name_Gene	template	im:aspect:Genomics	1000001
-1000067	LocatedSequenceFeature.chromosome	reference	im:aspect:Genomics	1000001
-1000068	All_Proteins_In_Organism_To_Publications	template	im:public	1000001
-1000069	org.intermine.model.bio.SnoRNA	class	im:aspect:Genomics	1000001
-1000070	org.intermine.model.bio.Protein	class	im:aspect:Proteins	1000001
-1000071	Gene_allGOTerms	template	im:frontpage	1000001
-1000072	Organism_GoTerm_GeneWithannotation	template	im:public	1000001
-1000073	Organism_GoTerm_Gene	template	im:aspect:Genomics	1000001
-1000074	LocatedSequenceFeature.sequence	reference	im:aspect:Genomics	1000001
-1000075	org.intermine.model.bio.Gene	class	im:preferredBagType	1000001
-1000076	BioEntity.synonyms	collection	im:summary	1000001
-1000077	Protein.sequence	reference	im:aspect:Proteins	1000001
-1000078	Gene_To_Protein_Type_Converter	template	im:converter	1000001
-1000079	Protein_GOterms	template	im:public	1000001
-1000080	org.intermine.model.bio.Transcript	class	im:aspect:Genomics	1000001
-1000081	Organism_GoTerm_GeneWithannotation	template	im:frontpage	1000001
+1000002	Gene_GO	template	im:frontpage	1000001
+1000003	RegulatoryRegion.gene	reference	im:summary	1000001
+1000004	Gene_Identifiers	template	im:public	1000001
+1000005	Protein_GOtermsSpecificOntology	template	im:aspect:Proteins	1000001
+1000006	Organism_GoTerm_Gene	template	im:public	1000001
+1000007	BioEntity.synonyms	collection	im:summary	1000001
+1000008	Gene.proteins	collection	im:summary	1000001
+1000009	Chromosome.genes	collection	im:aspect:Genomics	1000001
+1000010	Gene_allGOTerms	template	im:frontpage	1000001
+1000011	org.intermine.model.bio.NcRNA	class	im:aspect:Genomics	1000001
+1000013	MRNA.UTRs	collection	im:aspect:Genomics	1000001
+1000014	Protein.proteinDomains	collection	im:aspect:Proteins	1000001
+1000015	Protein.features	collection	im:aspect:Proteins	1000001
+1000016	org.intermine.model.bio.SnoRNA	class	im:aspect:Genomics	1000001
+1000017	BindingSite.factor	reference	im:summary	1000001
+1000018	org.intermine.model.bio.ChromosomeBand	class	im:aspect:Genomics	1000001
+1000019	Gene_particularGoannotation	template	im:public	1000001
+1000020	Protein.publications	collection	im:summary	1000001
+1000021	Gene_allGOTerms	template	im:public	1000001
+1000022	LocatedSequenceFeature.sequence	reference	im:aspect:Genomics	1000001
+1000023	GOtermidentifier_name	template	im:public	1000001
+1000024	LocatedSequenceFeature.overlappingFeatures	collection	im:aspect:Genomics	1000001
+1000025	CDS.MRNA	reference	im:aspect:Genomics	1000001
+1000026	LocatedSequenceFeature.chromosomeLocation	reference	im:aspect:Genomics	1000001
+1000027	Organism_GoTerm_Gene	template	im:aspect:Genomics	1000001
+1000028	org.intermine.model.bio.UTR	class	im:aspect:Genomics	1000001
+1000029	org.intermine.model.bio.Protein	class	im:preferredBagType	1000001
+1000030	BioEntity.relations	collection	im:hidden	1000001
+1000031	Gene.UTRs	collection	im:aspect:Genomics	1000001
+1000032	Gene_Protein	template	im:public	1000001
+1000033	Gene_Protein	template	im:frontpage	1000001
+1000034	Transcript.introns	collection	im:aspect:Genomics	1000001
+1000035	org.intermine.model.bio.Gene	class	im:aspect:Genomics	1000001
+1000036	BioEntity.subjects	collection	im:hidden	1000001
+1000037	org.intermine.model.bio.Chromosome	class	im:aspect:Genomics	1000001
+1000038	Protein.genes	collection	im:summary	1000001
+1000039	Organism_Protein	template	im:public	1000001
+1000040	Organism_Protein	template	im:frontpage	1000001
+1000041	Gene_GO	template	im:aspect:Genomics	1000001
+1000042	Gene.transcripts	collection	im:aspect:Genomics	1000001
+1000043	Protein.sequence	reference	im:aspect:Proteins	1000001
+1000044	org.intermine.model.bio.Gene	class	im:preferredBagType	1000001
+1000045	GO_name_Gene	template	im:aspect:Genomics	1000001
+1000046	Gene.publications	collection	im:summary	1000001
+1000047	All_Proteins_In_Organism_To_Publications	template	im:public	1000001
+1000048	org.intermine.model.bio.MRNA	class	im:aspect:Genomics	1000001
+1000049	BioEntity.objects	collection	im:hidden	1000001
+1000050	MicroarrayOligo.transcript	reference	im:summary	1000001
+1000052	Organism_GoTerm_GeneWithannotation	template	im:frontpage	1000001
+1000053	ProteinInteraction.protein	reference	im:aspect:Proteins	1000001
+1000054	Gene_Protein	template	im:aspect:Proteins	1000001
+1000055	Gene_particularGoannotation	template	im:aspect:Genomics	1000001
+1000056	Protein_To_Gene_Type_Converter	template	im:converter	1000001
+1000057	LocatedSequenceFeature.chromosome	reference	im:aspect:Genomics	1000001
+1000058	Transcript.gene	reference	im:aspect:Genomics	1000001
+1000059	All_Proteins_In_Organism_To_Publications	template	im:frontpage	1000001
+1000060	org.intermine.model.bio.TFBindingSite	class	im:aspect:Genomics	1000001
+1000061	CDS.polypeptides	collection	im:aspect:Proteins	1000001
+1000062	Gene_allGOTerms	template	im:aspect:Genomics	1000001
+1000063	Organism_GoTerm_GeneWithannotation	template	im:public	1000001
+1000064	Protein.comments	collection	im:summary	1000001
+1000065	Protein.genes	collection	im:aspect:Genomics	1000001
+1000066	Evidence.relations	collection	im:hidden	1000001
+1000067	org.intermine.model.bio.Protein	class	im:aspect:Proteins	1000001
+1000068	CDS.protein	reference	im:aspect:Proteins	1000001
+1000069	Protein_GOtermsSpecificOntology	template	im:public	1000001
+1000070	Protein_GOterms	template	im:frontpage	1000001
+1000071	Gene_GO	template	im:public	1000001
+1000072	BioEntity.organism	reference	im:summary	1000001
+1000073	Gene.proteins	collection	im:aspect:Proteins	1000001
+1000074	org.intermine.model.bio.Transcript	class	im:aspect:Genomics	1000001
+1000075	Chromosome.transcripts	collection	im:aspect:Genomics	1000001
+1000076	org.intermine.model.bio.GOTerm	class	im:aspect:Genomics	1000001
+1000077	Gene_Protein	template	im:aspect:Genomics	1000001
+1000078	Protein_GOterms	template	im:public	1000001
+1000079	Chromosome.features	collection	im:aspect:Genomics	1000001
+1000080	Gene_To_Protein_Type_Converter	template	im:converter	1000001
+1000081	Protein.keywords	collection	im:aspect:Proteins	1000001
 \.
 
 
 --
--- Data for Name: templatesummary; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: templatesummary; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.templatesummary (summary, id, templateid) FROM stdin;
@@ -583,7 +569,7 @@ COPY public.templatesummary (summary, id, templateid) FROM stdin;
 
 
 --
--- Data for Name: templatetrack; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: templatetrack; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.templatetrack (templatename, username, sessionidentifier, "timestamp") FROM stdin;
@@ -591,7 +577,7 @@ COPY public.templatetrack (templatename, username, sessionidentifier, "timestamp
 
 
 --
--- Data for Name: userpreferences; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: userpreferences; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.userpreferences (userprofileid, preferencename, preferencevalue) FROM stdin;
@@ -599,16 +585,30 @@ COPY public.userpreferences (userprofileid, preferencename, preferencevalue) FRO
 
 
 --
--- Data for Name: userprofile; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: userprofile; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.userprofile (superuser, id, password, username, apikey, localaccount) FROM stdin;
-t	1000001	ZDGXS/5VtrRsjWMTOFYbLr2WohjrgaxNF+knzlUy4Z4=QqLHRyva3IyVJl8rp0FZMSbz8Plw7DeJemokaCW0Zes=	test_user@mail_account	\N	t
+t	1000001	D/j9PQsYTEOb1s3YhIzy8mfauE9nGLqPAM0liY4ZpbE=5Fq42YV7cNnLW/ATW9YgRBa5Pvrnp+pPCrFeBx7+H5g=	test_user@mail_account	\N	t
 \.
 
 
 --
--- Name: baginvites baginvites_token_key; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
+
+
+--
+-- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.serial', 1, true);
+
+
+--
+-- Name: baginvites baginvites_token_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.baginvites
@@ -616,7 +616,7 @@ ALTER TABLE ONLY public.baginvites
 
 
 --
--- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.clob
@@ -624,7 +624,7 @@ ALTER TABLE ONLY public.clob
 
 
 --
--- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.intermine_metadata
@@ -632,7 +632,7 @@ ALTER TABLE ONLY public.intermine_metadata
 
 
 --
--- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.osbag_int
@@ -640,7 +640,7 @@ ALTER TABLE ONLY public.osbag_int
 
 
 --
--- Name: permanenttoken permanenttoken_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: permanenttoken permanenttoken_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.permanenttoken
@@ -648,7 +648,7 @@ ALTER TABLE ONLY public.permanenttoken
 
 
 --
--- Name: savedbag savedbag_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: savedbag savedbag_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.savedbag
@@ -656,7 +656,7 @@ ALTER TABLE ONLY public.savedbag
 
 
 --
--- Name: savedquery savedquery_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: savedquery savedquery_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.savedquery
@@ -664,7 +664,7 @@ ALTER TABLE ONLY public.savedquery
 
 
 --
--- Name: savedtemplatequery savedtemplatequery_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: savedtemplatequery savedtemplatequery_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.savedtemplatequery
@@ -672,7 +672,7 @@ ALTER TABLE ONLY public.savedtemplatequery
 
 
 --
--- Name: tag tag_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: tag tag_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.tag
@@ -680,7 +680,7 @@ ALTER TABLE ONLY public.tag
 
 
 --
--- Name: templatesummary templatesummary_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: templatesummary templatesummary_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.templatesummary
@@ -688,7 +688,7 @@ ALTER TABLE ONLY public.templatesummary
 
 
 --
--- Name: userpreferences userpreferences_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: userpreferences userpreferences_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.userpreferences
@@ -696,7 +696,7 @@ ALTER TABLE ONLY public.userpreferences
 
 
 --
--- Name: userprofile userprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: userprofile userprofile_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.userprofile
@@ -704,21 +704,21 @@ ALTER TABLE ONLY public.userprofile
 
 
 --
--- Name: bagvalues_index1; Type: INDEX; Schema: public; Owner: regen
+-- Name: bagvalues_index1; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX bagvalues_index1 ON public.bagvalues USING btree (savedbagid, value, extra);
 
 
 --
--- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: regen
+-- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX osbag_int_index2 ON public.osbag_int USING btree (value, bagid);
 
 
 --
--- Name: sharedbag_index1; Type: INDEX; Schema: public; Owner: regen
+-- Name: sharedbag_index1; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE UNIQUE INDEX sharedbag_index1 ON public.sharedbag USING btree (bagid, userprofileid);

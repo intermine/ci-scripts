@@ -2,13 +2,13 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.15
--- Dumped by pg_dump version 9.6.15
+-- Dumped from database version 9.6.14
+-- Dumped by pg_dump version 10.9 (Ubuntu 10.9-1.pgdg16.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
+SET client_encoding = 'SQL_ASCII';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: attribute; Type: TABLE; Schema: public; Owner: regen
+-- Name: attribute; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.attribute (
@@ -45,10 +45,10 @@ CREATE TABLE public.attribute (
 );
 
 
-ALTER TABLE public.attribute OWNER TO regen;
+ALTER TABLE public.attribute OWNER TO postgres;
 
 --
--- Name: clob; Type: TABLE; Schema: public; Owner: regen
+-- Name: clob; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.clob (
@@ -59,10 +59,10 @@ CREATE TABLE public.clob (
 ALTER TABLE ONLY public.clob ALTER COLUMN value SET STORAGE PLAIN;
 
 
-ALTER TABLE public.clob OWNER TO regen;
+ALTER TABLE public.clob OWNER TO postgres;
 
 --
--- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: regen
+-- Name: intermine_metadata; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.intermine_metadata (
@@ -72,10 +72,10 @@ CREATE TABLE public.intermine_metadata (
 );
 
 
-ALTER TABLE public.intermine_metadata OWNER TO regen;
+ALTER TABLE public.intermine_metadata OWNER TO postgres;
 
 --
--- Name: item; Type: TABLE; Schema: public; Owner: regen
+-- Name: item; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.item (
@@ -86,10 +86,10 @@ CREATE TABLE public.item (
 );
 
 
-ALTER TABLE public.item OWNER TO regen;
+ALTER TABLE public.item OWNER TO postgres;
 
 --
--- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: regen
+-- Name: objectstore_unique_integer; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.objectstore_unique_integer
@@ -100,10 +100,10 @@ CREATE SEQUENCE public.objectstore_unique_integer
     CACHE 1;
 
 
-ALTER TABLE public.objectstore_unique_integer OWNER TO regen;
+ALTER TABLE public.objectstore_unique_integer OWNER TO postgres;
 
 --
--- Name: osbag_int; Type: TABLE; Schema: public; Owner: regen
+-- Name: osbag_int; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.osbag_int (
@@ -112,10 +112,10 @@ CREATE TABLE public.osbag_int (
 );
 
 
-ALTER TABLE public.osbag_int OWNER TO regen;
+ALTER TABLE public.osbag_int OWNER TO postgres;
 
 --
--- Name: reference; Type: TABLE; Schema: public; Owner: regen
+-- Name: reference; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.reference (
@@ -125,10 +125,10 @@ CREATE TABLE public.reference (
 );
 
 
-ALTER TABLE public.reference OWNER TO regen;
+ALTER TABLE public.reference OWNER TO postgres;
 
 --
--- Name: referencelist; Type: TABLE; Schema: public; Owner: regen
+-- Name: referencelist; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.referencelist (
@@ -138,10 +138,10 @@ CREATE TABLE public.referencelist (
 );
 
 
-ALTER TABLE public.referencelist OWNER TO regen;
+ALTER TABLE public.referencelist OWNER TO postgres;
 
 --
--- Name: serial; Type: SEQUENCE; Schema: public; Owner: regen
+-- Name: serial; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.serial
@@ -152,10 +152,10 @@ CREATE SEQUENCE public.serial
     CACHE 1;
 
 
-ALTER TABLE public.serial OWNER TO regen;
+ALTER TABLE public.serial OWNER TO postgres;
 
 --
--- Data for Name: attribute; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: attribute; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.attribute (name, intermine_value, itemid) FROM stdin;
@@ -163,7 +163,7 @@ COPY public.attribute (name, intermine_value, itemid) FROM stdin;
 
 
 --
--- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: clob; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.clob (clobid, clobpage, value) FROM stdin;
@@ -171,21 +171,21 @@ COPY public.clob (clobid, clobpage, value) FROM stdin;
 
 
 --
--- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: intermine_metadata; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.intermine_metadata (key, value, blob_value) FROM stdin;
 model	<model name="fulldata" package="org.intermine.model.fulldata">\n<class name="Item" is-interface="false">\n\t<attribute name="className" type="java.lang.String"/>\n\t<attribute name="implementations" type="java.lang.String"/>\n\t<attribute name="identifier" type="java.lang.String"/>\n\t<collection name="attributes" referenced-type="Attribute" reverse-reference="item"/>\n\t<collection name="collections" referenced-type="ReferenceList" reverse-reference="item"/>\n\t<collection name="references" referenced-type="Reference" reverse-reference="item"/>\n</class>\n<class name="Attribute" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="value" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="attributes"/>\n</class>\n<class name="ReferenceList" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="refIds" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="collections"/>\n</class>\n<class name="Reference" extends="java.lang.Object" is-interface="false">\n\t<attribute name="name" type="java.lang.String"/>\n\t<attribute name="refId" type="java.lang.String"/>\n\t<reference name="item" referenced-type="Item" reverse-reference="references"/>\n</class>\n</model>	\N
-keyDefs	#Tue Oct 22 10:57:23 BST 2019\nReference.key=item\nReference.key_refid=refId\nAttribute.key=item\nItem.key=identifier\nReferenceList.key=item\n	\N
+keyDefs	#Tue Oct 22 12:58:33 UTC 2019\nReference.key=item\nReference.key_refid=refId\nAttribute.key=item\nItem.key=identifier\nReferenceList.key=item\n	\N
 osversion	1	\N
 missingTables	InterMineObject	\N
 noNotXml	true	\N
-serialNumber	-5890146817168729159	\N
+serialNumber	6866212955053234534	\N
 \.
 
 
 --
--- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.item (classname, identifier, id, implementations) FROM stdin;
@@ -193,14 +193,7 @@ COPY public.item (classname, identifier, id, implementations) FROM stdin;
 
 
 --
--- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: regen
---
-
-SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
-
-
---
--- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: osbag_int; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.osbag_int (bagid, value) FROM stdin;
@@ -208,7 +201,7 @@ COPY public.osbag_int (bagid, value) FROM stdin;
 
 
 --
--- Data for Name: reference; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: reference; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.reference (refid, name, itemid) FROM stdin;
@@ -216,7 +209,7 @@ COPY public.reference (refid, name, itemid) FROM stdin;
 
 
 --
--- Data for Name: referencelist; Type: TABLE DATA; Schema: public; Owner: regen
+-- Data for Name: referencelist; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.referencelist (name, refids, itemid) FROM stdin;
@@ -224,14 +217,21 @@ COPY public.referencelist (name, refids, itemid) FROM stdin;
 
 
 --
--- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: regen
+-- Name: objectstore_unique_integer; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.objectstore_unique_integer', 1, false);
+
+
+--
+-- Name: serial; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.serial', 1, false);
 
 
 --
--- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: clob clob_index; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.clob
@@ -239,7 +239,7 @@ ALTER TABLE ONLY public.clob
 
 
 --
--- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: intermine_metadata intermine_metadata_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.intermine_metadata
@@ -247,7 +247,7 @@ ALTER TABLE ONLY public.intermine_metadata
 
 
 --
--- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: item item_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.item
@@ -255,7 +255,7 @@ ALTER TABLE ONLY public.item
 
 
 --
--- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: regen
+-- Name: osbag_int osbag_int_index1; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.osbag_int
@@ -263,42 +263,42 @@ ALTER TABLE ONLY public.osbag_int
 
 
 --
--- Name: attribute__key; Type: INDEX; Schema: public; Owner: regen
+-- Name: attribute__key; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX attribute__key ON public.attribute USING btree (itemid);
 
 
 --
--- Name: item__key; Type: INDEX; Schema: public; Owner: regen
+-- Name: item__key; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX item__key ON public.item USING btree (identifier, id);
 
 
 --
--- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: regen
+-- Name: osbag_int_index2; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX osbag_int_index2 ON public.osbag_int USING btree (value, bagid);
 
 
 --
--- Name: reference__key; Type: INDEX; Schema: public; Owner: regen
+-- Name: reference__key; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX reference__key ON public.reference USING btree (itemid);
 
 
 --
--- Name: reference__key_refid; Type: INDEX; Schema: public; Owner: regen
+-- Name: reference__key_refid; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX reference__key_refid ON public.reference USING btree (refid);
 
 
 --
--- Name: referencelist__key; Type: INDEX; Schema: public; Owner: regen
+-- Name: referencelist__key; Type: INDEX; Schema: public; Owner: postgres
 --
 
 CREATE INDEX referencelist__key ON public.referencelist USING btree (itemid);

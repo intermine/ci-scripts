@@ -6,5 +6,6 @@ services:
   - postgresql
 jobs:
   include:
-    - script: bash init-testmine.sh
     - script: bash init-biotestmine.sh
+    - script: bash init-testmine.sh
+    - script: BUILD_DATASET=true bash init-biotestmine.sh

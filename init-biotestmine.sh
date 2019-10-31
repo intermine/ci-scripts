@@ -67,10 +67,14 @@ fi
 # We will need a fully operational web-application
 if $BUILD_DATASET; then
   echo '#---> Building and releasing web application to test against'
-  (cd biotestmine && ./setup.sh) &
+  cd biotestmine
+  ./setup.sh &
   # Gradle doesn't actually finish executing, so we daemonize it, wait and pray
   # that it finishes in time.
   sleep 600
+  ./gradlew --stop
+  ./gradlew tomcatStartWar &
+  sleep 60
 else
   echo '#---> Restoring and releasing web application to test against'
   echo '#---> Checking databases...'
@@ -91,6 +95,9 @@ else
   cd biotestmine
   ./gradlew postprocess -Pprocess=create-autocomplete-index
   ./gradlew postprocess -Pprocess=create-search-index
+  ./gradlew tomcatStartWar &
+  sleep 60
+  ./gradlew --stop
   ./gradlew tomcatStartWar &
   sleep 60
 fi

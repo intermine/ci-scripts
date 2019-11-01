@@ -36,11 +36,9 @@ $SCRIPT_DIR/init-solr.sh
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'
 cd testmodel/testmine
-./setup.sh &
+./setup.sh
+
 sleep 60 # let webapp startup
-./gradlew --stop
-./gradlew tomcatStartWar &
-sleep 60
 
 # Warm up the keyword search by requesting results, but ignoring the results
 $GET "http://localhost:8080/intermine-demo/service/search" > /dev/null

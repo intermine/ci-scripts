@@ -35,7 +35,9 @@ $SCRIPT_DIR/init-solr.sh
 
 # We will need a fully operational web-application
 echo '#---> Building and releasing web application to test against'
-(cd testmodel/testmine && ./setup.sh)
+cd testmodel/testmine
+./setup.sh
+
 sleep 60 # let webapp startup
 
 # Warm up the keyword search by requesting results, but ignoring the results

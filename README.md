@@ -1,3 +1,7 @@
+## Warning: Not in use
+
+These scripts have been superseded by [intermine_boot](https://github.com/intermine/intermine_boot). This repository is no longer being maintained.
+
 # ci-scripts
 
 [![Build Status](https://travis-ci.org/intermine/ci-scripts.svg?branch=master)](https://travis-ci.org/intermine/ci-scripts)
